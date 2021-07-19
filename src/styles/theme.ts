@@ -21,6 +21,9 @@ export const theme = extendTheme({
   },
   styles: {
     global: {
+      'button:hover': {
+        bg: 'pink.500'
+      },
       body: {
         bg: 'gray.900',
         color: 'gray.50'

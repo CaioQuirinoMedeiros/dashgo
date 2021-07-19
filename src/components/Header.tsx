@@ -22,7 +22,7 @@ export function Header() {
       px='6'
       align='center'
     >
-      <Text fontSize='3xl' fontWeight='bold' letterSpacing='tight' mr='4'>
+      <Text fontSize='3xl' fontWeight='bold' letterSpacing='tight' w='48'>
         dashgo
         <Text as='span' marginLeft='1' color='pink.500'>
           .
@@ -63,10 +63,9 @@ export function Header() {
           py='1'
           color={'gray.300'}
           borderRightWidth={1}
-          borderColor='gray.700'
         >
           <IconButton
-            aria-label='Notificações'
+            aria-label='Adicionar usuário'
             variant='ghost'
             borderRadius='full'
             icon={<Icon as={RiUserAddLine} fontSize='20' />}
