@@ -16,7 +16,8 @@ import {
   Menu,
   MenuButton,
   MenuList,
-  MenuItem
+  MenuItem,
+  useBreakpointValue
 } from '@chakra-ui/react'
 import {
   RiAddLine,
@@ -30,6 +31,8 @@ import { Sidebar } from '../../components/Sidebar'
 import { Pagination } from '../../components/Pagination'
 
 export default function UsersList() {
+  const isWideVersion = useBreakpointValue({ base: false, lg: true })
+
   return (
     <Box>
       <Header />
@@ -37,7 +40,7 @@ export default function UsersList() {
       <Flex w='100%' my='6' maxW={1480} mx='auto' px='6'>
         <Sidebar />
 
-        <Box as='main' flex='1' borderRadius={8} bg='gray.800' p='8'>
+        <Box as='main' flex='1' borderRadius={8} bg='gray.800' p={['6', '8']}>
           <Flex mb='8' justify='space-between' align='center'>
             <Heading size='lg' fontWeight='normal'>
               Usuários
@@ -58,20 +61,20 @@ export default function UsersList() {
           <Table colorScheme='whiteAlpha'>
             <Thead>
               <Tr>
-                <Th px='6' color='gray.300' w='8'>
+                <Th px={['2', '4', '6']} color='gray.300'>
                   <Checkbox colorScheme='pink' />
                 </Th>
-                <Th>Usuário</Th>
-                <Th>Data de cadastro</Th>
+                <Th px={['2', '4', '6']}>Usuário</Th>
+                {!!isWideVersion && <Th>Data de cadastro</Th>}
                 <Th></Th>
               </Tr>
             </Thead>
             <Tbody>
               <Tr>
-                <Td px='6'>
+                <Td px={['2', '4', '6']}>
                   <Checkbox colorScheme='pink' />
                 </Td>
-                <Td>
+                <Td px={['2', '4', '6']}>
                   <Box>
                     <Text fontWeight='bold'>Diego Fernandes</Text>
                     <Text fontSize='sm' color='gray.300'>
@@ -79,8 +82,8 @@ export default function UsersList() {
                     </Text>
                   </Box>
                 </Td>
-                <Td>04 de Abril, 2021</Td>
-                <Td textAlign='right' pr='2'>
+                {!!isWideVersion && <Td>04 de Abril, 2021</Td>}
+                <Td textAlign='right' px='2'>
                   <Menu autoSelect={false}>
                     <MenuButton
                       as={IconButton}
