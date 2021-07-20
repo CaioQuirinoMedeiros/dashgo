@@ -1,4 +1,4 @@
-import { Icon, IconButton, HStack } from '@chakra-ui/react'
+import { Icon, IconButton, HStack, Tooltip } from '@chakra-ui/react'
 import { RiNotificationLine, RiUserAddLine } from 'react-icons/ri'
 
 export function NotificationsNav() {
@@ -11,18 +11,22 @@ export function NotificationsNav() {
       color={'gray.300'}
       borderRightWidth={1}
     >
-      <IconButton
-        aria-label='Adicionar usuário'
-        variant='ghost'
-        borderRadius='full'
-        icon={<Icon as={RiUserAddLine} fontSize='20' />}
-      />
-      <IconButton
-        aria-label='Notificações'
-        variant='ghost'
-        borderRadius='full'
-        icon={<Icon as={RiNotificationLine} fontSize='20' />}
-      />
+      <Tooltip label='Adicionar usuário' placement='bottom'>
+        <IconButton
+          aria-label='Adicionar usuário'
+          variant='ghost'
+          borderRadius='full'
+          icon={<Icon as={RiUserAddLine} fontSize='20' />}
+        />
+      </Tooltip>
+      <Tooltip label='Notificações' placement='bottom'>
+        <IconButton
+          aria-label='Notificações'
+          variant='ghost'
+          borderRadius='full'
+          icon={<Icon as={RiNotificationLine} fontSize='20' />}
+        />
+      </Tooltip>
     </HStack>
   )
 }

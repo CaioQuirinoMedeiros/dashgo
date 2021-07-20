@@ -19,6 +19,7 @@ import {
   MenuItem,
   useBreakpointValue
 } from '@chakra-ui/react'
+import Link from 'next/link'
 import {
   RiAddLine,
   RiEraserFill,
@@ -46,16 +47,18 @@ export default function UsersList() {
               Usuários
             </Heading>
 
-            <Button
-              as='a'
-              size='sm'
-              href='#'
-              fontSize='sm'
-              colorScheme='pink'
-              leftIcon={<Icon as={RiAddLine} fontSize='20' />}
-            >
-              Criar novo
-            </Button>
+            <Link href={'/users/create'} passHref>
+              <Button
+                as='a'
+                size='sm'
+                href='#'
+                fontSize='sm'
+                colorScheme='pink'
+                leftIcon={<Icon as={RiAddLine} fontSize='20' />}
+              >
+                Criar novo
+              </Button>
+            </Link>
           </Flex>
 
           <Table colorScheme='whiteAlpha'>

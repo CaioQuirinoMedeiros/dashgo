@@ -2,37 +2,25 @@ import {
   Box,
   Flex,
   Heading,
-  Checkbox,
   Button,
-  Icon,
-  Text,
   VStack,
   HStack,
-  Thead,
-  Tr,
-  Th,
-  Tbody,
-  Td,
-  IconButton,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
   Divider,
   SimpleGrid
 } from '@chakra-ui/react'
-import {
-  RiAddLine,
-  RiEraserFill,
-  RiMore2Fill,
-  RiPencilFill
-} from 'react-icons/ri'
+import { useRouter } from 'next/dist/client/router'
 import { Input } from '../../components/Form/Input'
 
 import { Header } from '../../components/Header'
 import { Sidebar } from '../../components/Sidebar'
 
 export default function CreateUser() {
+  const router = useRouter()
+
+  function handleCancel() {
+    router.back()
+  }
+
   return (
     <Box>
       <Header />
@@ -65,7 +53,9 @@ export default function CreateUser() {
 
           <Flex mt='8' justify='flex-end'>
             <HStack spacing='4'>
-              <Button colorScheme='whiteAlpha'>Cancelar</Button>
+              <Button colorScheme='whiteAlpha' onClick={handleCancel}>
+                Cancelar
+              </Button>
               <Button colorScheme='pink'>Salvar</Button>
             </HStack>
           </Flex>
